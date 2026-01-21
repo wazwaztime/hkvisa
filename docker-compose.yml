@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  hkvisa:
+    build: .
+    container_name: hkvisa-checker
+    restart: unless-stopped
+    volumes:
+      - ./config.env:/app/config.env:ro
+    environment:
+      - TZ=Asia/Hong_Kong
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

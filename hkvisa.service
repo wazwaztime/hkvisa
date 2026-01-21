@@ -1,0 +1,14 @@
+[Unit]
+Description=Hong Kong Visa Appointment Checker
+After=network.target
+
+[Service]
+Type=simple
+User=youruser
+WorkingDirectory=/path/to/hkvisa
+ExecStart=/usr/bin/python3 /path/to/hkvisa/main.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
