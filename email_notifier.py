@@ -20,32 +20,33 @@ class EmailNotifier:
     
     def create_email_content(self, results: List[Dict]) -> str:
         """Create HTML email content from visa check results"""
-        html = """
+        report_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        html = f"""
         <html>
         <head>
             <style>
-                body { font-family: Arial, sans-serif; }
-                h1 { color: #2c3e50; }
-                .visa-card {
+                body {{ font-family: Arial, sans-serif; }}
+                h1 {{ color: #2c3e50; }}
+                .visa-card {{
                     border: 2px solid #3498db;
                     border-radius: 8px;
                     padding: 15px;
                     margin: 15px 0;
                     background-color: #ecf0f1;
-                }
-                .status-available { color: #27ae60; font-weight: bold; }
-                .status-unavailable { color: #e74c3c; font-weight: bold; }
-                .status-checking { color: #f39c12; font-weight: bold; }
-                .status-error { color: #c0392b; font-weight: bold; }
-                .info-row { margin: 8px 0; }
-                .label { font-weight: bold; color: #34495e; }
-                a { color: #3498db; text-decoration: none; }
-                a:hover { text-decoration: underline; }
+                }}
+                .status-available {{ color: #27ae60; font-weight: bold; }}
+                .status-unavailable {{ color: #e74c3c; font-weight: bold; }}
+                .status-checking {{ color: #f39c12; font-weight: bold; }}
+                .status-error {{ color: #c0392b; font-weight: bold; }}
+                .info-row {{ margin: 8px 0; }}
+                .label {{ font-weight: bold; color: #34495e; }}
+                a {{ color: #3498db; text-decoration: none; }}
+                a:hover {{ text-decoration: underline; }}
             </style>
         </head>
         <body>
             <h1>🌍 Hong Kong Visa Appointment Report</h1>
-            <p><strong>Report Date:</strong> """ + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + """</p>
+            <p><strong>Report Date:</strong> {report_date}</p>
         """
         
         if not results:

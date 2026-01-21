@@ -8,8 +8,7 @@ echo ""
 
 # Check Python version
 echo "Checking Python version..."
-python3 --version
-if [ $? -ne 0 ]; then
+if ! python3 --version; then
     echo "❌ Python 3 is not installed. Please install Python 3.7 or higher."
     exit 1
 fi
@@ -18,8 +17,7 @@ echo ""
 
 # Install dependencies
 echo "Installing dependencies..."
-pip3 install -r requirements.txt
-if [ $? -ne 0 ]; then
+if ! pip3 install -r requirements.txt; then
     echo "❌ Failed to install dependencies"
     exit 1
 fi

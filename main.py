@@ -125,7 +125,7 @@ class VisaAppointmentChecker:
         # Keep the script running
         while True:
             schedule.run_pending()
-            time.sleep(60)  # Check every minute
+            time.sleep(300)  # Check every 5 minutes (sufficient for daily schedule)
 
 
 def main():
